@@ -23,6 +23,7 @@ pub enum ValidationError {
 pub(crate) fn validate_response_headers(
     response: Response<Option<Vec<u8>>>,
 ) -> Result<(), ValidationError> {
+    println!("Response headers = {:?}", response.headers());
     let subprotocol = response
         .headers()
         .get("Sec-WebSocket-Protocol")
